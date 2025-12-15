@@ -13,15 +13,15 @@ A vector database with HNSW indexing built from scratch in Python.
        ┌──────────────▼───────────────────┐
        │         HNSW Index               │
        │                                  │
-       │  Layer 3:  ●                     │  entry point
-       │            / \                    │
-       │  Layer 2: ●───●                  │  sparse
-       │          /|\  |\                  │
-       │  Layer 1: ●─●─●─●               │  medium
-       │         /|X|X|X|\                │
-       │  Layer 0: ●─●─●─●─●─●           │  dense
-       │         |X|X|X|X|X|X|            │
-       │         ●─●─●─●─●─●─●           │
+       │   Layer 3    ●        entry point│
+       │              / \                 │
+       │   Layer 2  ●───●       sparse    │
+       │            /|\  |\               │
+       │   Layer 1 ●─●─●─●      medium    │
+       │          /|X|X|X|\               │
+       │   Layer 0 ●─●─●─●─●─●    dense   │
+       │          |X|X|X|X|X|X|           │
+       │          ●─●─●─●─●─●─●           │
        │                                  │
        │  · Multi-layer random level      │
        │  · Greedy layer descent          │
@@ -70,15 +70,9 @@ results = db.search(np.random.randn(128), k=10)
 - **euclidean** — Euclidean distance (score = -distance)
 - **dot_product** — dot product
 
-## Benchmark Results
+## Status
 
-| Dataset Size | Build Time (s) | Queries/sec | Recall@10 |
-|-------------:|---------------:|------------:|----------:|
-|       10,000 |           0.62 |      1200.0 |    0.9850 |
-|       50,000 |           3.80 |       850.0 |    0.9720 |
-|      100,000 |           8.20 |       720.0 |    0.9640 |
-
-*Benchmarked on a single CPU core with 128-dim random vectors, M=16, ef_construction=200, ef=50.*
+This is a learning / portfolio project implementing an HNSW vector index from scratch. The benchmark numbers previously listed here were not based on actual measurements and have been removed.
 
 ## How HNSW Works
 
@@ -103,40 +97,4 @@ candidates that are closer to an already-selected neighbor than to the query.
 
 ## License
 
-MIT License
-
-Copyright (c) 2024-2026
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
-<!-- -->
+MIT
